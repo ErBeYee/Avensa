@@ -1,60 +1,61 @@
 import "./Login.css";
-import { useState, useEffect } from "react";
-import {
-  Carousel,
-  CarouselItem,
-  CarouselControl,
-  CarouselIndicators,
-} from "reactstrap";
+import React, { useState, useEffect } from "react";
+// import {
+//   Carousel,
+//   CarouselItem,
+//   CarouselControl,
+//   CarouselIndicators,
+// } from "reactstrap";
 import logo from "../../assets/logo.svg";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 
-const items = [
-  { src: "https://picsum.photos/id/123/800/600", key: 1 },
-  { src: "https://picsum.photos/id/456/800/600", key: 2 },
-  { src: "https://picsum.photos/id/678/800/600", key: 3 },
-];
+// const items = [
+//   { src: "https://picsum.photos/id/123/800/600", key: 1 },
+//   { src: "https://picsum.photos/id/456/800/600", key: 2 },
+//   { src: "https://picsum.photos/id/678/800/600", key: 3 },
+// ];
 
 const Login = () => {
   const navigate = useNavigate();
 
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [animating, setAnimating] = useState(false);
+  // const [activeIndex, setActiveIndex] = useState(0);
+  // const [animating, setAnimating] = useState(false);
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const [loading, setLoading] = useState(false);
 
-  const next = () => {
-    if (animating) return;
-    setActiveIndex((prev) => (prev === items.length - 1 ? 0 : prev + 1));
-  };
+  // const next = () => {
+  //   if (animating) return;
+  //   setActiveIndex((prev) => (prev === items.length - 1 ? 0 : prev + 1));
+  // };
 
-  const previous = () => {
-    if (animating) return;
-    setActiveIndex((prev) => (prev === 0 ? items.length - 1 : prev - 1));
-  };
+  // const previous = () => {
+  //   if (animating) return;
+  //   setActiveIndex((prev) => (prev === 0 ? items.length - 1 : prev - 1));
+  // };
 
-  const slides = items.map((item) => (
-    <CarouselItem
-      key={item.key}
-      onExiting={() => setAnimating(true)}
-      onExited={() => setAnimating(false)}
-    >
-      <img src={item.src} alt="" className="carousel-img" />
-    </CarouselItem>
-  ));
+  // const slides = items.map((item) => (
+  //   <CarouselItem
+  //     key={item.key}
+  //     onExiting={() => setAnimating(true)}
+  //     onExited={() => setAnimating(false)}
+  //   >
+  //     <img src={item.src} alt="" className="carousel-img" />
+  //   </CarouselItem>
+  // ));
 
+  console.log(import.meta.env.VITE_BASE_URL);
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
     try {
       const response = await axios.post(
-        "https://avensa.petik.or.id/mahasantri/login",
+        `/api/mahasantri/login`,
         {
           nama_santri: username,
           password,
@@ -62,6 +63,7 @@ const Login = () => {
       );
 
       const token = response.data.token;
+      console.log(token);
 
       if (!token) throw new Error("Token tidak ditemukan");
 
@@ -70,14 +72,14 @@ const Login = () => {
       const decoded = jwtDecode(token);
 
       if (decoded.role_id === 2) {
-        navigate("/mahasiswa");
-      } else {
         navigate("/dashboard");
+      } else {
+        navigate("/mahasantri");
       }
     } catch (error) {
       console.log(error);
 
-      alert(error.response?.data?.message || "Login gagal");
+      alert(error.data?.response?.message || "Login gagal");
     } finally {
       setLoading(false);
     }
@@ -85,7 +87,7 @@ const Login = () => {
 
   return (
     <div className="login-container">
-      <div className="login-left">
+      {/* <div className="login-left">
         <Carousel
           activeIndex={activeIndex}
           next={next}
@@ -105,7 +107,7 @@ const Login = () => {
           <CarouselControl direction="prev" onClickHandler={previous} />
           <CarouselControl direction="next" onClickHandler={next} />
         </Carousel>
-      </div>
+      </div> */}
 
       <div className="login-right">
         <div className="lgo">
