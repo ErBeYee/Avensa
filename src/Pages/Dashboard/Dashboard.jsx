@@ -18,7 +18,6 @@ const Dashboard = () => {
     <div className="dashboard-container">
       <h3 className="title">Persentase</h3>
 
-      {/* 🔥 1 CARD BESAR */}
       <div className="card">
         <div className="charts">
           {colors.map((color, i) => (

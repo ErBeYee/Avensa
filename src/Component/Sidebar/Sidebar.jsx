@@ -14,28 +14,28 @@ const Sidebar = () => {
     <div className="sidebar">
       <ul>
         <li>
-          <NavLink to="/dashboard" end>
+          <NavLink to="" end>
             Dashboard
           </NavLink>
         </li>
         <li>
-          <NavLink to="/absensi">Absensi</NavLink>
+          <NavLink to="absensi">Absensi</NavLink>
         </li>
 
         <li>
-          <NavLink to="/history">History</NavLink>
+          <NavLink to="history">History</NavLink>
         </li>
 
         <li>
-          <NavLink to="/profil">Profil</NavLink>
+          <NavLink to="profil">Profil</NavLink>
         </li>
 
         <hr />
         <li>
-          <NavLink to="/service">Service</NavLink>
+          <NavLink to="service">Service</NavLink>
         </li>
         <li>
-          <NavLink to="/pengaturan">Pengaturan</NavLink>
+          <NavLink to="pengaturan">Pengaturan</NavLink>
         </li>
         <hr />
 
