@@ -1,0 +1,39 @@
+.dashboard-container {
+  padding: 20px;
+}
+
+.title {
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.card {
+  background: #e5e7eb;
+  padding: 30px;
+  border-radius: 20px;
+  border: #11182744 solid 1px;
+}
+
+
+.charts {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+}
+
+
+.chart-item {
+  text-align: center;
+}
+
+
+.text {
+  font-size: 18px;
+  font-weight: bold;
+  fill: #111827;
+}
+
+.label {
+  margin-top: 10px;
+  font-weight: 600;
+}

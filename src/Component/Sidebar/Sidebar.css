@@ -11,22 +11,33 @@
 }
 
 .sidebar li {
-  color: #e5e7eb;
   margin: 12px 0;
   padding: 8px 12px;
   border-radius: 10px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-weight: bold;
 }
 
-
-.sidebar .active {
+.sidebar li:hover {
   background: #14b8a6;
   color: white;
+  transform: translateX(3px);
 }
 
+.sidebar a {
+  text-decoration: none;
+  color: #e5e7eb;
+}
 
 .sidebar hr {
   border: none;
   height: 1px;
   background: #94a3b8;
   margin: 15px 0;
+}
+
+button{
+  background: none;
+  border: none;
 }
