@@ -94,4 +94,10 @@
   margin-left: 290px;
   cursor: pointer;
   align-items: flex-end;
+  transition: 0.3s;
+}
+
+.btn-keluar:hover{
+  background-color: rgb(153, 8, 8);
+  transform: translateY(-2px);
 }
